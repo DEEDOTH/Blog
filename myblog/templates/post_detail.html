@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{ instance.title }} | {{ block.super }}{% endblock head_title %}
+{% block content %}
+	<div class="col-sm-6 col-sm-offset-3">
+		{% if instance.image %}
+		<img src="{{ instance.image.url }}" class="img-responsive" />
+		{% endif %}
+	<h1> {{ title }} <small>{{ instance.timestamp }}</small> </h1>
+	<p>
+		<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+	</p>
+	<hr/>
+
+	<!-- <p>
+		<a href="https://facebook.com/ayoooladamilare"> Facebook </a>
+		<a href="https://instagram.com/ayoooladamilare1"> Instagram </a>
+		<a href="https://twitter.com/ayoooladamilare"> Twitter </a>
+		<a href="https://twitter.com/ayoooladamilare"> LinkedIn </a>
+	</p>
+ -->
+	{{ instance.content | linebreaks }}<br/>
+
+	<p>
+	<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div>
+	</p>
+
+	</div>
+{% endblock content %}
